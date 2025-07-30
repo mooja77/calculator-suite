@@ -241,7 +241,8 @@ def sitemap():
                 loc.text = base_url + url_for(endpoint, language_code=g.language_code, **kwargs)
             else:
                 loc.text = base_url + url_for(endpoint, language_code=g.language_code)
-            \n            # Metadata
+            
+            # Metadata
             lastmod = ET.SubElement(url_elem, 'lastmod')
             lastmod.text = current_date
             
@@ -250,7 +251,8 @@ def sitemap():
             
             changefreq_elem = ET.SubElement(url_elem, 'changefreq')
             changefreq_elem.text = changefreq
-            \n            # Add alternate language links
+            
+            # Add alternate language links
             for lang_code in i18n_service.SUPPORTED_LANGUAGES.keys():
                 if lang_code != g.language_code:
                     xhtml_link = ET.SubElement(url_elem, '{http://www.w3.org/1999/xhtml}link')

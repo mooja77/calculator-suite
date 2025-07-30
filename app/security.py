@@ -183,6 +183,18 @@ def security_headers(response):
     
     return response
 
+def require_api_key(f):
+    """
+    Decorator to require API key for certain endpoints (optional for public API)
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # For now, allow all requests (public API)
+        # In the future, you can add API key validation here
+        return f(*args, **kwargs)
+    
+    return decorated_function
+
 def require_csrf(f):
     """
     Decorator to require CSRF token for API endpoints

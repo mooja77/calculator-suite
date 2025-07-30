@@ -84,12 +84,16 @@ class I18nService:
     
     def __init__(self):
         self.translations_cache = {}
-        self.translations_dir = Path(current_app.root_path) / 'translations'
+        self.translations_dir = None  # Will be set in initialize_translations
         self.fallback_language = 'en'
         
     def initialize_translations(self):
         """Initialize translation system and load all language files."""
         try:
+            # Set translations directory
+            from flask import current_app
+            self.translations_dir = Path(current_app.root_path) / 'translations'
+            
             # Ensure translations directory exists
             self.translations_dir.mkdir(exist_ok=True)
             

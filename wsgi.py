@@ -1,8 +1,4 @@
-"""
-WSGI entry point for production deployment.
-This file is specifically for Gunicorn to import the Flask application.
-"""
-
+"""WSGI entry point for production deployment."""
 import os
 import sys
 

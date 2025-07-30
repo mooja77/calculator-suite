@@ -1,4 +1,1 @@
-# Routes package
-from .main import main
-
-__all__ = ['main']
+# Routes package for additional route modules

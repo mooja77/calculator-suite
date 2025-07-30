@@ -75,7 +75,7 @@ def create_app():
     register_i18n_helpers(app)
     
     # Register blueprints
-    from app.routes import main
+    from app.main_routes import main
     from app.routes.i18n_routes import i18n_routes
     app.register_blueprint(main)
     app.register_blueprint(i18n_routes)

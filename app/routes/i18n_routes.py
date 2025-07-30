@@ -231,9 +231,11 @@ def sitemap():
         for calc_name in calculator_registry.get_all_calculators().keys():
             urls.append((f'i18n_routes.calculator_page', 0.8, 'weekly', {'calculator_name': calc_name}))
             urls.append((f'i18n_routes.calculator_guide', 0.6, 'weekly', {'calculator_name': calc_name}))
-        \n        for endpoint, priority, changefreq, kwargs in urls:
+        
+        for endpoint, priority, changefreq, kwargs in urls:
             url_elem = ET.SubElement(urlset, 'url')
-            \n            # Main URL
+            
+            # Main URL
             loc = ET.SubElement(url_elem, 'loc')
             if kwargs:
                 loc.text = base_url + url_for(endpoint, language_code=g.language_code, **kwargs)

@@ -1,0 +1,468 @@
+/* 
+ * Internationalization and RTL Support Styles
+ * Comprehensive styling for multi-language support
+ */
+
+/* Language Switcher Component */
+.language-switcher {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.language-toggle {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    color: #64748b;
+    min-width: 120px;
+    justify-content: space-between;
+}
+
+.language-toggle:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+.language-toggle:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.current-language {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.language-flag {
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+.language-name {
+    font-weight: 500;
+    color: #374151;
+}
+
+.dropdown-icon {
+    transition: transform 0.2s ease;
+    color: #9ca3af;
+}
+
+.language-toggle[aria-expanded="true"] .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Language Dropdown */
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.language-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.language-option:hover {
+    background: #f8fafc;
+}
+
+.language-option:focus {
+    outline: none;
+    background: #f1f5f9;
+}
+
+.language-option.active {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.language-option.active .native-name {
+    font-weight: 600;
+}
+
+.language-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.native-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.english-name {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.check-icon {
+    color: #10b981;
+    margin-left: auto;
+}
+
+/* Loading State */
+.language-switcher.loading .language-toggle {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.language-switcher.loading .language-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .language-switcher {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] .language-dropdown {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .language-option {
+    text-align: right;
+}
+
+[dir="rtl"] .check-icon {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* RTL Layout Adjustments */
+.rtl .container {
+    direction: rtl;
+}
+
+.rtl .primary-nav {
+    direction: rtl;
+}
+
+.rtl .nav-menu {
+    direction: rtl;
+}
+
+.rtl .nav-logo {
+    order: 2;
+}
+
+.rtl .language-switcher {
+    order: 1;
+}
+
+.rtl .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+
+.rtl .nav-link__icon {
+    transform: scaleX(-1);
+}
+
+.rtl .calculator-container {
+    direction: rtl;
+}
+
+.rtl .form-group label {
+    text-align: right;
+}
+
+.rtl .result {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .content-block {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .footer-content {
+    direction: rtl;
+}
+
+.rtl .footer-section {
+    text-align: right;
+}
+
+/* RTL Form Elements */
+.rtl input,
+.rtl select,
+.rtl textarea {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl input[type="number"] {
+    text-align: left; /* Keep numbers LTR */
+}
+
+/* RTL Button Adjustments */
+.rtl button {
+    direction: rtl;
+}
+
+.rtl .btn-icon {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Arabic Font Improvements */
+[lang="ar"] {
+    font-family: 'Segoe UI', 'Tahoma', 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+}
+
+[lang="ar"] .calculator-container h1,
+[lang="ar"] .calculator-container h2,
+[lang="ar"] .calculator-container h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+[lang="ar"] .nav-logo__text {
+    font-weight: 600;
+}
+
+[lang="ar"] .language-name,
+[lang="ar"] .native-name {
+    font-weight: 600;
+}
+
+/* Number Input RTL Override */
+.rtl input[type="number"],
+.rtl .number-input {
+    direction: ltr;
+    text-align: right;
+}
+
+/* Currency Display RTL */
+.rtl .currency-display {
+    direction: ltr;
+    text-align: right;
+}
+
+/* Calculator Results RTL */
+.rtl .result-value {
+    direction: ltr;
+    text-align: right;
+}
+
+/* Navigation Dropdown RTL */
+.rtl .dropdown-menu {
+    right: auto;
+    left: 0;
+    text-align: right;
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+    .rtl .nav-toggle {
+        order: 1;
+    }
+    
+    .rtl .nav-logo {
+        order: 2;
+        margin-right: auto;
+        margin-left: 0;
+    }
+    
+    .rtl .language-switcher {
+        order: 3;
+        margin-right: 0;
+        margin-left: 1rem;
+    }
+    
+    .language-dropdown {
+        right: 0;
+        left: auto;
+        min-width: 180px;
+    }
+    
+    .rtl .language-dropdown {
+        right: auto;
+        left: 0;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .language-toggle {
+        border-width: 2px;
+    }
+    
+    .language-dropdown {
+        border-width: 2px;
+    }
+    
+    .language-option:hover,
+    .language-option:focus {
+        background: #000;
+        color: #fff;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .language-toggle,
+    .language-dropdown,
+    .dropdown-icon {
+        transition: none;
+    }
+    
+    .language-switcher.loading .language-toggle::after {
+        animation: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .language-switcher {
+        display: none;
+    }
+}
+
+/* Focus Visible Support */
+@supports selector(:focus-visible) {
+    .language-toggle:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .language-toggle:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+    }
+    
+    .language-option:focus {
+        background: none;
+    }
+    
+    .language-option:focus-visible {
+        background: #f1f5f9;
+        outline: 2px solid #3b82f6;
+        outline-offset: -2px;
+    }
+}
+
+/* Language-specific text improvements */
+[lang="de"] {
+    word-break: break-word; /* Handle long German compound words */
+}
+
+[lang="fr"] {
+    hanging-punctuation: first last; /* Improve French typography */
+}
+
+[lang="es"] {
+    hyphens: auto; /* Better word wrapping for Spanish */
+}
+
+/* Ensure proper text rendering for all languages */
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility improvements */
+.language-switcher [role="menu"] {
+    outline: none;
+}
+
+.language-switcher [role="menuitem"] {
+    outline: none;
+}
+
+.language-switcher [role="menuitem"]:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+}
+
+/* Animation for language changes */
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page-transition.loaded {
+    opacity: 1;
+}
+
+/* Error notification styles */
+.language-error-notification {
+    font-family: system-ui, -apple-system, sans-serif;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,271 @@
+{
+  "common": {
+    "calculate": "احسب",
+    "reset": "إعادة تعيين",
+    "result": "النتيجة",
+    "error": "خطأ",
+    "loading": "جاري التحميل...",
+    "currency": "العملة",
+    "amount": "المبلغ",
+    "percentage": "النسبة المئوية",
+    "total": "المجموع",
+    "submit": "إرسال",
+    "clear": "مسح",
+    "copy": "نسخ",
+    "share": "مشاركة",
+    "print": "طباعة",
+    "help": "مساعدة",
+    "close": "إغلاق",
+    "language": "اللغة",
+    "english": "الإنجليزية",
+    "french": "الفرنسية",
+    "german": "الألمانية",
+    "spanish": "الإسبانية",
+    "arabic": "العربية"
+  },
+  
+  "navigation": {
+    "home": "الرئيسية",
+    "calculators": "الحاسبات",
+    "all_calculators": "جميع الحاسبات",
+    "guides": "الأدلة",
+    "about": "حول",
+    "contact": "اتصل بنا",
+    "financial": "مالي",
+    "everyday": "حياة يومية",
+    "toggle_menu": "تبديل القائمة"
+  },
+  
+  "calculators": {
+    "title": "مجموعة الحاسبات",
+    "subtitle": "حاسبات مجانية ودقيقة وسهلة الاستخدام",
+    "description": "حاسبات احترافية لجميع احتياجاتك المالية واليومية",
+    
+    "percentage": {
+      "title": "حاسبة النسبة المئوية",
+      "description": "احسب النسب المئوية والزيادة/النقصان المئوي واكتشف كم نسبة رقم من آخر",
+      "value": "القيمة",
+      "is_what_percent_of": "كم نسبة مئوية من",
+      "percent_of": "% من",
+      "equals": "يساوي",
+      "increase_decrease": "زيادة/نقصان",
+      "original_value": "القيمة الأصلية",
+      "new_value": "القيمة الجديدة",
+      "change": "التغيير",
+      "increase": "زيادة",
+      "decrease": "نقصان"
+    },
+    
+    "retirement401k": {
+      "title": "حاسبة التقاعد 401(k)",
+      "description": "خطط لمدخرات التقاعد مع إسقاطات مفصلة وتحليل المساهمات",
+      "current_age": "العمر الحالي",
+      "retirement_age": "عمر التقاعد",
+      "current_balance": "الرصيد الحالي 401(k)",
+      "annual_contribution": "المساهمة السنوية",
+      "employer_match": "مساهمة صاحب العمل %",
+      "annual_return": "العائد السنوي المتوقع %",
+      "salary": "الراتب السنوي",
+      "final_balance": "الرصيد المتوقع عند التقاعد",
+      "total_contributions": "إجمالي مساهمات الموظف",
+      "employer_contributions": "إجمالي مساهمات صاحب العمل",
+      "investment_growth": "نمو الاستثمار"
+    },
+    
+    "studentloan": {
+      "title": "حاسبة القرض الطلابي",
+      "description": "احسب الدفعات الشهرية والفوائد الإجمالية وجدول السداد للقروض الطلابية",
+      "loan_amount": "مبلغ القرض",
+      "interest_rate": "معدل الفائدة (%)",
+      "loan_term": "مدة القرض (سنوات)",
+      "monthly_payment": "الدفعة الشهرية",
+      "total_interest": "إجمالي الفوائد المدفوعة",
+      "total_amount": "إجمالي المبلغ المدفوع",
+      "payoff_date": "تاريخ السداد"
+    },
+    
+    "paycheck": {
+      "title": "حاسبة الراتب",
+      "description": "احسب صافي الراتب بعد الضرائب والاستقطاعات",
+      "gross_salary": "الراتب الإجمالي السنوي",
+      "pay_frequency": "تكرار الدفع",
+      "filing_status": "حالة الإقرار",
+      "allowances": "البدلات",
+      "state": "الولاية",
+      "gross_pay": "الراتب الإجمالي",
+      "federal_tax": "الضريبة الفيدرالية",
+      "state_tax": "ضريبة الولاية",
+      "social_security": "الضمان الاجتماعي",
+      "medicare": "الرعاية الطبية",
+      "net_pay": "صافي الراتب",
+      "weekly": "أسبوعي",
+      "biweekly": "كل أسبوعين",
+      "monthly": "شهري",
+      "single": "أعزب",
+      "married_joint": "متزوج إقرار مشترك",
+      "married_separate": "متزوج إقرار منفصل",
+      "head_household": "رب الأسرة"
+    },
+    
+    "sip": {
+      "title": "حاسبة SIP",
+      "description": "احسب العوائد على استثمارات خطة الاستثمار المنتظم (SIP)",
+      "monthly_investment": "الاستثمار الشهري",
+      "investment_period": "فترة الاستثمار (سنوات)",
+      "expected_return": "العائد السنوي المتوقع (%)",
+      "total_investment": "إجمالي الاستثمار",
+      "future_value": "القيمة المستقبلية",
+      "wealth_gained": "الثروة المكتسبة"
+    },
+    
+    "rentvsbuy": {
+      "title": "حاسبة الإيجار مقابل الشراء",
+      "description": "قارن التأثير المالي للإيجار مقابل شراء منزل",
+      "home_price": "سعر المنزل",
+      "down_payment": "الدفعة المقدمة (%)",
+      "loan_term": "مدة القرض (سنوات)",
+      "mortgage_rate": "معدل فائدة الرهن العقاري (%)",
+      "monthly_rent": "الإيجار الشهري",
+      "rent_increase": "زيادة الإيجار السنوية (%)",
+      "home_appreciation": "تقدير المنزل السنوي (%)",
+      "property_tax": "ضريبة العقار السنوية",
+      "home_insurance": "تأمين المنزل السنوي",
+      "maintenance": "الصيانة السنوية",
+      "total_cost_buying": "إجمالي تكلفة الشراء",
+      "total_cost_renting": "إجمالي تكلفة الإيجار",
+      "net_difference": "صافي الفرق",
+      "recommendation": "التوصية"
+    },
+    
+    "uk_vat": {
+      "title": "حاسبة ضريبة القيمة المضافة البريطانية",
+      "description": "احسب ضريبة القيمة المضافة البريطانية للسلع والخدمات",
+      "net_amount": "المبلغ الصافي (بدون ضريبة)",
+      "vat_rate": "معدل ضريبة القيمة المضافة (%)",
+      "vat_amount": "مبلغ ضريبة القيمة المضافة",
+      "gross_amount": "المبلغ الإجمالي (شامل الضريبة)",
+      "standard_rate": "المعدل القياسي (20%)",
+      "reduced_rate": "المعدل المخفض (5%)",
+      "zero_rate": "المعدل الصفري (0%)"
+    },
+    
+    "zakat": {
+      "title": "حاسبة الزكاة",
+      "description": "احسب الزكاة (الصدقة الإسلامية) بناءً على ثروتك وأصولك",
+      "cash_savings": "النقد والمدخرات",
+      "gold_silver": "الذهب والفضة",
+      "business_assets": "الأصول التجارية",
+      "investments": "الاستثمارات",
+      "other_assets": "الأصول الأخرى",
+      "debts": "الديون المستحقة",
+      "nisab_threshold": "عتبة النصاب",
+      "zakatable_wealth": "الثروة الخاضعة للزكاة",
+      "zakat_due": "الزكاة المستحقة (2.5%)",
+      "gold_nisab": "نصاب الذهب",
+      "silver_nisab": "نصاب الفضة"
+    },
+    
+    "takaful": {
+      "title": "حاسبة التكافل",
+      "description": "احسب مساهمات ومنافع التأمين الإسلامي (التكافل)",
+      "sum_assured": "مبلغ التأمين",
+      "policy_term": "مدة البوليصة (سنوات)",
+      "premium_frequency": "تكرار القسط",
+      "monthly_contribution": "المساهمة الشهرية",
+      "annual_contribution": "المساهمة السنوية",
+      "total_contributions": "إجمالي المساهمات",
+      "maturity_benefit": "منفعة الاستحقاق"
+    },
+    
+    "murabaha": {
+      "title": "حاسبة المرابحة",
+      "description": "احسب شروط ودفعات التمويل الإسلامي (المرابحة)",
+      "purchase_price": "سعر الشراء",
+      "profit_rate": "معدل الربح (%)",
+      "financing_period": "فترة التمويل (أشهر)",
+      "down_payment": "الدفعة المقدمة",
+      "total_cost": "إجمالي التكلفة",
+      "profit_amount": "مبلغ الربح",
+      "monthly_installment": "القسط الشهري"
+    }
+  },
+  
+  "results": {
+    "your_result": "نتيجتك",
+    "breakdown": "التفصيل",
+    "summary": "الملخص",
+    "details": "التفاصيل",
+    "assumptions": "الافتراضات",
+    "disclaimer": "هذا الحساب لأغراض إعلامية فقط ولا يجب اعتباره نصيحة مالية."
+  },
+  
+  "errors": {
+    "invalid_input": "يرجى إدخال رقم صحيح",
+    "required_field": "هذا الحقل مطلوب",
+    "calculation_error": "حدث خطأ أثناء الحساب. يرجى التحقق من مدخلاتك.",
+    "network_error": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "min_value": "يجب أن تكون القيمة على الأقل {min}",
+    "max_value": "لا يمكن أن تتجاوز القيمة {max}",
+    "positive_number": "يرجى إدخال رقم موجب"
+  },
+  
+  "islamic_finance": {
+    "title": "التمويل الإسلامي",
+    "subtitle": "حسابات مالية متوافقة مع الشريعة",
+    "terms": {
+      "murabaha": {
+        "arabic": "مرابحة",
+        "transliteration": "Murabaha",
+        "definition": "عقد بيع يكشف فيه البائع التكلفة وهامش الربح للمشتري"
+      },
+      "takaful": {
+        "arabic": "تكافل",
+        "transliteration": "Takaful",
+        "definition": "تأمين إسلامي قائم على المساعدة المتبادلة والمسؤولية المشتركة"
+      },
+      "zakat": {
+        "arabic": "زكاة",
+        "transliteration": "Zakat",
+        "definition": "صدقة واجبة تُدفع سنوياً على الثروة التي تتجاوز عتبة النصاب"
+      },
+      "riba": {
+        "arabic": "ربا",
+        "transliteration": "Riba",
+        "definition": "فائدة أو ربا محرم في التمويل الإسلامي"
+      },
+      "halal": {
+        "arabic": "حلال",
+        "transliteration": "Halal",
+        "definition": "مسموح وفقاً للشريعة الإسلامية"
+      },
+      "haram": {
+        "arabic": "حرام",
+        "transliteration": "Haram",
+        "definition": "محرم وفقاً للشريعة الإسلامية"
+      }
+    },
+    "disclaimers": {
+      "general": "هذه الحسابات مبنية على مبادئ عامة للتمويل الإسلامي. يرجى استشارة عالم إسلامي مؤهل للحصول على إرشاد ديني محدد.",
+      "zakat": "حسابات الزكاة مبنية على السنة القمرية. استشر عالماً إسلامياً لضمان الامتثال لظروفك المحددة."
+    }
+  },
+  
+  "content": {
+    "how_to_use": "كيفية الاستخدام",
+    "examples": "أمثلة",
+    "faq": "الأسئلة الشائعة",
+    "related_calculators": "حاسبات ذات صلة",
+    "tips": "نصائح وإرشادات"
+  },
+  
+  "footer": {
+    "description": "حاسبات مجانية ودقيقة وسهلة الاستخدام لجميع احتياجاتك المالية واليومية.",
+    "popular_calculators": "الحاسبات الشائعة",
+    "resources": "الموارد",
+    "connect": "تواصل",
+    "updates": "احصل على تحديثات حول الحاسبات والميزات الجديدة.",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة",
+    "copyright": "© 2024 مجموعة الحاسبات. جميع الحقوق محفوظة."
+  }
+}

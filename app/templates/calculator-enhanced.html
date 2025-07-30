@@ -1,0 +1,472 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title>{{ calculator.name }} - Calculator Suite</title>
+  <meta name="description" content="{{ calculator.description }}">
+  
+  <!-- Additional CSS for navigation -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/calculators">Calculators</a></li>
+    <li><a href="/calculators/{{ calculator.category }}">{{ calculator.category_name }}</a></li>
+    <li aria-current="page">{{ calculator.name }}</li>
+  </ol>
+</nav>
+
+<!-- Calculator Page -->
+<div class="calculator-page">
+  <!-- Page Header -->
+  <div class="calculator-header">
+    <h1 class="calculator-title">{{ calculator.name }}</h1>
+    <p class="calculator-description">{{ calculator.description }}</p>
+  </div>
+  
+  <!-- Calculator Container -->
+  <div class="calculator-container">
+    <!-- Main Calculator Form -->
+    <div class="calculator-main">
+      <form id="calculator-form" class="calculator-form" novalidate>
+        <!-- Loan Details Section -->
+        <div class="calc-form-section">
+          <div class="calc-form-section__header">
+            <div class="calc-form-section__icon">
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1.93.66 1.64 2.08 1.64 1.56 0 1.88-.74 1.88-1.21 0-.84-.33-1.34-2.21-1.72-2.42-.49-3.64-1.49-3.64-3.34 0-1.67 1.36-2.96 3.13-3.29V5h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-1.83-1.87-1.06 0-1.72.58-1.72 1.21 0 .63.45 1.09 2.16 1.49 2.45.56 3.69 1.46 3.69 3.41 0 1.9-1.46 3.04-3.19 3.51z"/>
+              </svg>
+            </div>
+            <h2 class="calc-form-section__title">Loan Details</h2>
+          </div>
+          
+          <div class="calc-input-grid calc-input-grid--2">
+            <!-- Loan Amount Input -->
+            <div class="calc-input">
+              <label class="form-label form-label--required" for="loan-amount">
+                Loan Amount
+                <span class="help-tooltip">
+                  <button type="button" class="help-tooltip__trigger" aria-label="Help with loan amount">?</button>
+                  <div class="help-tooltip__content" role="tooltip">
+                    <div class="help-tooltip__title">Loan Amount</div>
+                    <p>The total amount you're borrowing. This doesn't include interest or fees.</p>
+                  </div>
+                </span>
+              </label>
+              <div class="calc-input__wrapper">
+                <span class="calc-input__prefix">$</span>
+                <input 
+                  type="number" 
+                  id="loan-amount" 
+                  name="loanAmount"
+                  class="calc-input__field calc-input__field--with-prefix form-input"
+                  placeholder="250,000"
+                  min="1000"
+                  max="10000000"
+                  step="1000"
+                  required
+                  data-calc-input="currency"
+                  aria-describedby="loan-amount-hint loan-amount-error"
+                />
+              </div>
+              <span id="loan-amount-hint" class="calc-input__hint">How much do you need to borrow?</span>
+              <span id="loan-amount-error" class="calc-input__error form-error" role="alert"></span>
+            </div>
+            
+            <!-- Interest Rate Slider -->
+            <div class="calc-slider">
+              <div class="calc-slider__header">
+                <label class="calc-slider__label" for="interest-rate">Interest Rate</label>
+                <div class="calc-slider__value-input">
+                  <input 
+                    type="number" 
+                    class="calc-slider__value" 
+                    id="interest-rate-value"
+                    min="0" 
+                    max="30" 
+                    step="0.1" 
+                    value="4.5"
+                    aria-label="Interest rate value"
+                  />
+                  <span class="calc-slider__unit">%</span>
+                </div>
+              </div>
+              <div class="calc-slider__track">
+                <div class="calc-slider__fill" style="width: 15%;"></div>
+                <input 
+                  type="range" 
+                  class="calc-slider__input" 
+                  id="interest-rate"
+                  name="interestRate"
+                  min="0" 
+                  max="30" 
+                  step="0.1" 
+                  value="4.5"
+                  aria-label="Interest rate slider"
+                  aria-valuenow="4.5"
+                  aria-valuemin="0"
+                  aria-valuemax="30"
+                />
+                <div class="calc-slider__thumb" style="left: 15%;"></div>
+              </div>
+              <div class="calc-slider__marks">
+                <span>0%</span>
+                <span>15%</span>
+                <span>30%</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="calc-input-grid calc-input-grid--2">
+            <!-- Loan Term -->
+            <div class="form-group">
+              <label class="form-label form-label--required" for="loan-term">Loan Term</label>
+              <div class="input-group">
+                <select 
+                  id="loan-term" 
+                  name="loanTerm"
+                  class="form-select form-input"
+                  required
+                >
+                  <option value="5">5 years</option>
+                  <option value="10">10 years</option>
+                  <option value="15">15 years</option>
+                  <option value="20">20 years</option>
+                  <option value="25">25 years</option>
+                  <option value="30" selected>30 years</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Payment Frequency -->
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-label">Payment Frequency</legend>
+                <div class="toggle-group" role="radiogroup">
+                  <input type="radio" id="monthly" name="frequency" value="monthly" class="toggle-group__input" checked>
+                  <label for="monthly" class="toggle-group__label">Monthly</label>
+                  
+                  <input type="radio" id="biweekly" name="frequency" value="biweekly" class="toggle-group__input">
+                  <label for="biweekly" class="toggle-group__label">Bi-weekly</label>
+                  
+                  <input type="radio" id="weekly" name="frequency" value="weekly" class="toggle-group__input">
+                  <label for="weekly" class="toggle-group__label">Weekly</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Costs Section -->
+        <div class="calc-form-section">
+          <div class="calc-form-section__header">
+            <div class="calc-form-section__icon">
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              </svg>
+            </div>
+            <h2 class="calc-form-section__title">Additional Costs (Optional)</h2>
+          </div>
+          
+          <div class="calc-input-grid calc-input-grid--3">
+            <!-- Property Tax -->
+            <div class="calc-input">
+              <label class="form-label" for="property-tax">Annual Property Tax</label>
+              <div class="calc-input__wrapper">
+                <span class="calc-input__prefix">$</span>
+                <input 
+                  type="number" 
+                  id="property-tax" 
+                  name="propertyTax"
+                  class="calc-input__field calc-input__field--with-prefix form-input"
+                  placeholder="3,000"
+                  min="0"
+                  step="100"
+                  data-calc-input="currency"
+                />
+              </div>
+            </div>
+            
+            <!-- Home Insurance -->
+            <div class="calc-input">
+              <label class="form-label" for="home-insurance">Annual Home Insurance</label>
+              <div class="calc-input__wrapper">
+                <span class="calc-input__prefix">$</span>
+                <input 
+                  type="number" 
+                  id="home-insurance" 
+                  name="homeInsurance"
+                  class="calc-input__field calc-input__field--with-prefix form-input"
+                  placeholder="1,200"
+                  min="0"
+                  step="50"
+                  data-calc-input="currency"
+                />
+              </div>
+            </div>
+            
+            <!-- HOA Fees -->
+            <div class="calc-input">
+              <label class="form-label" for="hoa-fees">Monthly HOA Fees</label>
+              <div class="calc-input__wrapper">
+                <span class="calc-input__prefix">$</span>
+                <input 
+                  type="number" 
+                  id="hoa-fees" 
+                  name="hoaFees"
+                  class="calc-input__field calc-input__field--with-prefix form-input"
+                  placeholder="200"
+                  min="0"
+                  step="10"
+                  data-calc-input="currency"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="calc-actions">
+          <button type="submit" class="btn btn--primary btn--lg">
+            <svg class="btn__icon" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+              <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+            </svg>
+            Calculate Payment
+          </button>
+          <button type="reset" class="btn btn--secondary btn--lg">
+            Clear Form
+          </button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Results Section -->
+    <div id="results-container" class="results-container" style="display: none;">
+      <!-- Primary Result -->
+      <div class="result-hero">
+        <h3 class="result-hero__label">Your Monthly Payment</h3>
+        <div class="result-hero__value" data-result="monthlyPayment">
+          <span class="result-hero__currency">$</span>0.00
+        </div>
+        <p class="result-hero__description">
+          Based on a loan of <span data-result="loanAmountFormatted">$0</span> 
+          at <span data-result="interestRateFormatted">0%</span> for 
+          <span data-result="loanTermFormatted">0 years</span>
+        </p>
+      </div>
+      
+      <!-- Result Cards -->
+      <div class="result-cards">
+        <!-- Principal & Interest -->
+        <div class="result-card-enhanced">
+          <div class="result-card-enhanced__icon result-card-enhanced__icon--primary">
+            💰
+          </div>
+          <div class="result-card-enhanced__label">Principal & Interest</div>
+          <div class="result-card-enhanced__value" data-result="principalInterest">$0</div>
+          <div class="result-card-enhanced__trend result-card-enhanced__trend--up">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span data-result="principalPercent">0%</span> of payment
+          </div>
+        </div>
+        
+        <!-- Total Interest -->
+        <div class="result-card-enhanced">
+          <div class="result-card-enhanced__icon result-card-enhanced__icon--warning">
+            📊
+          </div>
+          <div class="result-card-enhanced__label">Total Interest</div>
+          <div class="result-card-enhanced__value" data-result="totalInterest">$0</div>
+          <div class="result-card-enhanced__trend">
+            Over <span data-result="loanTermFormatted">0 years</span>
+          </div>
+        </div>
+        
+        <!-- Total Cost -->
+        <div class="result-card-enhanced">
+          <div class="result-card-enhanced__icon result-card-enhanced__icon--success">
+            💸
+          </div>
+          <div class="result-card-enhanced__label">Total Cost</div>
+          <div class="result-card-enhanced__value" data-result="totalCost">$0</div>
+          <div class="result-card-enhanced__trend">
+            Principal + Interest
+          </div>
+        </div>
+      </div>
+      
+      <!-- Payment Breakdown Chart -->
+      <div class="chart-container-enhanced">
+        <div class="chart-header">
+          <h3 class="chart-title">Payment Breakdown</h3>
+          <div class="chart-controls">
+            <button class="chart-control chart-control--active" data-chart-view="monthly">Monthly</button>
+            <button class="chart-control" data-chart-view="yearly">Yearly</button>
+            <button class="chart-control" data-chart-view="total">Total</button>
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="payment-chart" role="img" aria-label="Payment breakdown chart"></canvas>
+        </div>
+      </div>
+      
+      <!-- Actions -->
+      <div class="results-actions">
+        <button class="btn btn--primary" data-print>
+          <svg class="btn__icon" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd"/>
+          </svg>
+          Print Results
+        </button>
+        <button class="btn btn--secondary" data-copy="#results-container">
+          <svg class="btn__icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+            <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/>
+          </svg>
+          Copy Link
+        </button>
+      </div>
+    </div>
+    
+    <!-- Help Section -->
+    <div class="help-section">
+      <div class="help-card">
+        <h2 class="help-title">How to Use This Calculator</h2>
+        <div class="help-content">
+          <p>Our mortgage calculator helps you determine your monthly payment and total costs. Here's what each field means:</p>
+          
+          <ul class="help-list">
+            <li><strong>Loan Amount:</strong> The total amount you're borrowing from the lender</li>
+            <li><strong>Interest Rate:</strong> The annual percentage rate (APR) charged by your lender</li>
+            <li><strong>Loan Term:</strong> The number of years you'll take to repay the loan</li>
+            <li><strong>Property Tax:</strong> Annual tax assessed on your property (optional)</li>
+            <li><strong>Home Insurance:</strong> Annual cost of homeowners insurance (optional)</li>
+            <li><strong>HOA Fees:</strong> Monthly homeowners association fees (optional)</li>
+          </ul>
+          
+          <div class="alert alert--info">
+            <div class="alert__content">
+              <div class="alert__title">Pro Tip</div>
+              <p>A shorter loan term means higher monthly payments but less total interest paid over the life of the loan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Related Calculators -->
+    <div class="related-calculators">
+      <h2 class="related-title">Related Calculators</h2>
+      <div class="related-grid">
+        <a href="/calculators/refinance" class="related-card">
+          <div class="related-card__icon">🏠</div>
+          <h3 class="related-card__title">Refinance Calculator</h3>
+          <p class="related-card__description">See if refinancing could save you money</p>
+        </a>
+        
+        <a href="/calculators/affordability" class="related-card">
+          <div class="related-card__icon">💵</div>
+          <h3 class="related-card__title">Affordability Calculator</h3>
+          <p class="related-card__description">Find out how much house you can afford</p>
+        </a>
+        
+        <a href="/calculators/rent-vs-buy" class="related-card">
+          <div class="related-card__icon">🤔</div>
+          <h3 class="related-card__title">Rent vs Buy Calculator</h3>
+          <p class="related-card__description">Compare renting vs buying a home</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Initialize enhanced calculator functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Get user's locale and currency
+  const locale = navigator.language || 'en-US';
+  const currency = 'USD'; // Could be determined by user location
+  
+  // Initialize number formatter
+  const formatter = new CalculatorUI.NumberFormatter(locale, currency);
+  
+  // Initialize enhanced inputs
+  document.querySelectorAll('[data-calc-input]').forEach(input => {
+    new CalculatorUI.EnhancedInput(input, {
+      type: input.dataset.calcInput,
+      formatter: formatter,
+      min: parseFloat(input.min),
+      max: parseFloat(input.max),
+      step: parseFloat(input.step),
+      onChange: (value) => console.log('Input changed:', value)
+    });
+  });
+  
+  // Initialize sliders
+  document.querySelectorAll('.calc-slider').forEach(slider => {
+    new CalculatorUI.SmartSlider(slider, {
+      onChange: (value) => console.log('Slider changed:', value)
+    });
+  });
+  
+  // Initialize real-time calculator
+  const calculator = new CalculatorUI.RealtimeCalculator(
+    document.getElementById('calculator-form'),
+    {
+      formatter: formatter,
+      onCalculate: async (data) => {
+        // Perform calculation
+        const monthlyRate = data.interestRate / 100 / 12;
+        const numPayments = data.loanTerm * 12;
+        
+        // Calculate monthly payment
+        const monthlyPayment = data.loanAmount * 
+          (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+          (Math.pow(1 + monthlyRate, numPayments) - 1);
+        
+        // Calculate totals
+        const totalPayment = monthlyPayment * numPayments;
+        const totalInterest = totalPayment - data.loanAmount;
+        
+        // Add optional costs
+        const monthlyTax = (data.propertyTax || 0) / 12;
+        const monthlyInsurance = (data.homeInsurance || 0) / 12;
+        const monthlyHOA = data.hoaFees || 0;
+        const totalMonthly = monthlyPayment + monthlyTax + monthlyInsurance + monthlyHOA;
+        
+        return {
+          monthlyPayment: totalMonthly,
+          principalInterest: monthlyPayment,
+          totalInterest: totalInterest,
+          totalCost: totalPayment,
+          loanAmountFormatted: formatter.formatCurrency(data.loanAmount),
+          interestRateFormatted: data.interestRate.toFixed(2) + '%',
+          loanTermFormatted: data.loanTerm + ' years',
+          principalPercent: ((data.loanAmount / totalPayment) * 100).toFixed(1)
+        };
+      }
+    }
+  );
+  
+  // Initialize toast manager
+  const toast = new CalculatorUI.ToastManager();
+  
+  // Show welcome message
+  if (!localStorage.getItem('calculator-welcomed')) {
+    setTimeout(() => {
+      toast.info('Try adjusting the values to see how it affects your payment', {
+        title: 'Welcome!',
+        duration: 8000
+      });
+      localStorage.setItem('calculator-welcomed', 'true');
+    }, 1000);
+  }
+});
+</script>
+{% endblock %}

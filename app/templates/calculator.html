@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="calculator-header">
+    <h1>{{ calculator.get_meta_data().title.split(' - ')[0] }}</h1>
+    <p>{{ calculator.get_meta_data().description }}</p>
+</div>
+
+<div class="calculator-container">
+    <form id="calculator-form" class="calculator-form">
+        {{ csrf_token() }}
+        {% if calculator_slug == 'percentage' %}
+            <div class="form-group">
+                <label for="operation">Calculation Type:</label>
+                <select id="operation" name="operation" required>
+                    <option value="basic">What % is X of Y?</option>
+                    <option value="find_value">What is X% of Y?</option>
+                    <option value="increase">Increase by %</option>
+                    <option value="decrease">Decrease by %</option>
+                    <option value="difference">% Difference</option>
+                    <option value="change">% Change</option>
+                </select>
+            </div>
+            
+            <div id="basic-fields" class="operation-fields">
+                <div class="form-group">
+                    <label for="x">First Number (X):</label>
+                    <input type="number" id="x" name="x" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="y">Second Number (Y):</label>
+                    <input type="number" id="y" name="y" step="any" required>
+                </div>
+            </div>
+            
+            <div id="find_value-fields" class="operation-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="percent">Percentage (%):</label>
+                    <input type="number" id="percent" name="percent" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="total">Total Amount:</label>
+                    <input type="number" id="total" name="total" step="any" required>
+                </div>
+            </div>
+            
+            <div id="increase-fields" class="operation-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="original">Original Value:</label>
+                    <input type="number" id="original" name="original" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="percent_inc">Percentage Increase (%):</label>
+                    <input type="number" id="percent_inc" name="percent" step="any" required>
+                </div>
+            </div>
+            
+            <div id="decrease-fields" class="operation-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="original_dec">Original Value:</label>
+                    <input type="number" id="original_dec" name="original" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="percent_dec">Percentage Decrease (%):</label>
+                    <input type="number" id="percent_dec" name="percent" step="any" required>
+                </div>
+            </div>
+            
+            <div id="difference-fields" class="operation-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="x_diff">First Value:</label>
+                    <input type="number" id="x_diff" name="x" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="y_diff">Second Value:</label>
+                    <input type="number" id="y_diff" name="y" step="any" required>
+                </div>
+            </div>
+            
+            <div id="change-fields" class="operation-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="original_change">Original Value:</label>
+                    <input type="number" id="original_change" name="original" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="new_value">New Value:</label>
+                    <input type="number" id="new_value" name="new_value" step="any" required>
+                </div>
+            </div>
+        {% endif %}
+        
+        <button type="submit" class="calculate-btn">Calculate</button>
+    </form>
+    
+    <div id="result-container" style="display: none;">
+        <div id="result" class="result"></div>
+    </div>
+    
+    <div id="error-container" style="display: none;">
+        <div id="error" class="error"></div>
+    </div>
+</div>
+
+<style>
+.calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.calculator-header h1 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.calculator-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.operation-fields {
+    margin-top: 1rem;
+}
+
+.calculate-btn {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#result-container, #error-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.result h3 {
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.formula {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-family: monospace;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const operationSelect = document.getElementById('operation');
+    const form = document.getElementById('calculator-form');
+    const resultContainer = document.getElementById('result-container');
+    const errorContainer = document.getElementById('error-container');
+    
+    // Show/hide fields based on operation
+    if (operationSelect) {
+        operationSelect.addEventListener('change', function() {
+            // Hide all operation fields
+            document.querySelectorAll('.operation-fields').forEach(field => {
+                field.style.display = 'none';
+                field.querySelectorAll('input').forEach(input => {
+                    input.removeAttribute('required');
+                });
+            });
+            
+            // Show fields for selected operation
+            const selectedFields = document.getElementById(this.value + '-fields');
+            if (selectedFields) {
+                selectedFields.style.display = 'block';
+                selectedFields.querySelectorAll('input').forEach(input => {
+                    input.setAttribute('required', 'required');
+                });
+            }
+        });
+    }
+    
+    // Handle form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {};
+        
+        for (let [key, value] of formData.entries()) {
+            if (value !== '') {
+                data[key] = value;
+            }
+        }
+        
+        // Get CSRF token
+        const csrfToken = document.querySelector('input[name="csrf_token"]').value;
+        
+        fetch(`/api/calculate/{{ calculator_slug }}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            errorContainer.style.display = 'none';
+            
+            if (result.error || result.errors) {
+                const errors = result.errors || [result.error];
+                const errorElement = document.getElementById('error');
+                errorElement.textContent = errors.join('; ');
+                errorContainer.style.display = 'block';
+                resultContainer.style.display = 'none';
+            } else {
+                const resultElement = document.getElementById('result');
+                resultElement.innerHTML = ''; // Clear previous content
+                
+                // Create elements safely
+                const resultTitle = document.createElement('h3');
+                resultTitle.textContent = `Result: ${result.result}`;
+                resultTitle.style.color = '#28a745';
+                resultTitle.style.marginBottom = '1rem';
+                
+                const explanation = document.createElement('p');
+                explanation.textContent = result.explanation;
+                
+                resultElement.appendChild(resultTitle);
+                resultElement.appendChild(explanation);
+                
+                if (result.formula) {
+                    const formulaDiv = document.createElement('div');
+                    formulaDiv.className = 'formula';
+                    
+                    const formulaLabel = document.createElement('strong');
+                    formulaLabel.textContent = 'Formula: ';
+                    
+                    const formulaText = document.createTextNode(result.formula);
+                    
+                    formulaDiv.appendChild(formulaLabel);
+                    formulaDiv.appendChild(formulaText);
+                    resultElement.appendChild(formulaDiv);
+                }
+                
+                resultContainer.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('error').textContent = 'An error occurred. Please try again.';
+            errorContainer.style.display = 'block';
+            resultContainer.style.display = 'none';
+        });
+    });
+});
+</script>
+{% endblock %}

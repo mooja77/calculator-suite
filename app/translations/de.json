@@ -1,0 +1,271 @@
+{
+  "common": {
+    "calculate": "Berechnen",
+    "reset": "Zurücksetzen",
+    "result": "Ergebnis",
+    "error": "Fehler",
+    "loading": "Laden...",
+    "currency": "Währung",
+    "amount": "Betrag",
+    "percentage": "Prozent",
+    "total": "Gesamt",
+    "submit": "Senden",
+    "clear": "Löschen",
+    "copy": "Kopieren",
+    "share": "Teilen",
+    "print": "Drucken",
+    "help": "Hilfe",
+    "close": "Schließen",
+    "language": "Sprache",
+    "english": "Englisch",
+    "french": "Französisch",
+    "german": "Deutsch",
+    "spanish": "Spanisch",
+    "arabic": "Arabisch"
+  },
+  
+  "navigation": {
+    "home": "Startseite",
+    "calculators": "Rechner",
+    "all_calculators": "Alle Rechner",
+    "guides": "Anleitungen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "financial": "Finanziell",
+    "everyday": "Alltäglich",
+    "toggle_menu": "Menü umschalten"
+  },
+  
+  "calculators": {
+    "title": "Rechner-Suite",
+    "subtitle": "Kostenlose, genaue und benutzerfreundliche Rechner",
+    "description": "Professionelle Rechner für alle Ihre finanziellen und alltäglichen Bedürfnisse",
+    
+    "percentage": {
+      "title": "Prozentrechner",
+      "description": "Berechnen Sie Prozentsätze, prozentuale Zu-/Abnahme und finden Sie heraus, welchen Prozentsatz eine Zahl von einer anderen darstellt",
+      "value": "Wert",
+      "is_what_percent_of": "ist wie viel % von",
+      "percent_of": "% von",
+      "equals": "gleich",
+      "increase_decrease": "Zu-/Abnahme",
+      "original_value": "Ursprünglicher Wert",
+      "new_value": "Neuer Wert",
+      "change": "Änderung",
+      "increase": "Zunahme",
+      "decrease": "Abnahme"
+    },
+    
+    "retirement401k": {
+      "title": "401(k) Rentenrechner",
+      "description": "Planen Sie Ihre Altersvorsorge mit detaillierten Projektionen und Beitragsanalyse",
+      "current_age": "Aktuelles Alter",
+      "retirement_age": "Rentenalter",
+      "current_balance": "Aktueller 401(k) Saldo",
+      "annual_contribution": "Jährlicher Beitrag",
+      "employer_match": "Arbeitgeberzuschuss %",
+      "annual_return": "Erwartete jährliche Rendite %",
+      "salary": "Jahresgehalt",
+      "final_balance": "Prognostizierter Saldo bei Renteneintritt",
+      "total_contributions": "Gesamte Arbeitnehmerbeiträge",
+      "employer_contributions": "Gesamte Arbeitgeberbeiträge",
+      "investment_growth": "Investitionswachstum"
+    },
+    
+    "studentloan": {
+      "title": "Studienkreditrechner",
+      "description": "Berechnen Sie monatliche Zahlungen, Gesamtzinsen und Tilgungsplan für Studienkredite",
+      "loan_amount": "Kreditbetrag",
+      "interest_rate": "Zinssatz (%)",
+      "loan_term": "Kreditlaufzeit (Jahre)",
+      "monthly_payment": "Monatliche Zahlung",
+      "total_interest": "Gesamte gezahlte Zinsen",
+      "total_amount": "Gesamter gezahlter Betrag",
+      "payoff_date": "Tilgungsdatum"
+    },
+    
+    "paycheck": {
+      "title": "Gehaltsrechner",
+      "description": "Berechnen Sie das Nettoeinkommen nach Steuern und Abzügen",
+      "gross_salary": "Brutto-Jahresgehalt",
+      "pay_frequency": "Zahlungsfrequenz",
+      "filing_status": "Steuerstatus",
+      "allowances": "Freibeträge",
+      "state": "Bundesstaat",
+      "gross_pay": "Bruttolohn",
+      "federal_tax": "Bundessteuer",
+      "state_tax": "Staatssteuer",
+      "social_security": "Sozialversicherung",
+      "medicare": "Medicare",
+      "net_pay": "Nettolohn",
+      "weekly": "Wöchentlich",
+      "biweekly": "Zweiwöchentlich",
+      "monthly": "Monatlich",
+      "single": "Ledig",
+      "married_joint": "Verheiratet gemeinsam",
+      "married_separate": "Verheiratet getrennt",
+      "head_household": "Haushaltsvorstand"
+    },
+    
+    "sip": {
+      "title": "SIP-Rechner",
+      "description": "Berechnen Sie Renditen auf Systematische Investitionsplan (SIP) Investitionen",
+      "monthly_investment": "Monatliche Investition",
+      "investment_period": "Investitionszeitraum (Jahre)",
+      "expected_return": "Erwartete jährliche Rendite (%)",
+      "total_investment": "Gesamtinvestition",
+      "future_value": "Zukunftswert",
+      "wealth_gained": "Erworbener Wohlstand"
+    },
+    
+    "rentvsbuy": {
+      "title": "Mieten vs Kaufen Rechner",
+      "description": "Vergleichen Sie die finanziellen Auswirkungen von Mieten versus Kaufen eines Hauses",
+      "home_price": "Hauspreis",
+      "down_payment": "Anzahlung (%)",
+      "loan_term": "Kreditlaufzeit (Jahre)",
+      "mortgage_rate": "Hypothekenzinssatz (%)",
+      "monthly_rent": "Monatliche Miete",
+      "rent_increase": "Jährliche Mieterhöhung (%)",
+      "home_appreciation": "Jährliche Hauswertschätzung (%)",
+      "property_tax": "Jährliche Grundsteuer",
+      "home_insurance": "Jährliche Hausversicherung",
+      "maintenance": "Jährliche Wartung",
+      "total_cost_buying": "Gesamtkosten des Kaufs",
+      "total_cost_renting": "Gesamtkosten der Miete",
+      "net_difference": "Nettodifferenz",
+      "recommendation": "Empfehlung"
+    },
+    
+    "uk_vat": {
+      "title": "UK MwSt-Rechner",
+      "description": "Berechnen Sie die britische Mehrwertsteuer (MwSt) für Waren und Dienstleistungen",
+      "net_amount": "Nettobetrag (ohne MwSt)",
+      "vat_rate": "MwSt-Satz (%)",
+      "vat_amount": "MwSt-Betrag",
+      "gross_amount": "Bruttobetrag (inklusive MwSt)",
+      "standard_rate": "Standardsatz (20%)",
+      "reduced_rate": "Reduzierter Satz (5%)",
+      "zero_rate": "Nullsatz (0%)"
+    },
+    
+    "zakat": {
+      "title": "Zakat-Rechner",
+      "description": "Berechnen Sie Zakat (islamisches Almosen) basierend auf Ihrem Vermögen und Ihren Besitztümern",
+      "cash_savings": "Bargeld & Ersparnisse",
+      "gold_silver": "Gold & Silber",
+      "business_assets": "Geschäftsvermögen",
+      "investments": "Investitionen",
+      "other_assets": "Andere Vermögenswerte",
+      "debts": "Ausstehende Schulden",
+      "nisab_threshold": "Nisab-Schwelle",
+      "zakatable_wealth": "Zakat-pflichtiges Vermögen",
+      "zakat_due": "Fällige Zakat (2,5%)",
+      "gold_nisab": "Gold Nisab",
+      "silver_nisab": "Silber Nisab"
+    },
+    
+    "takaful": {
+      "title": "Takaful-Rechner",
+      "description": "Berechnen Sie islamische Versicherung (Takaful) Beiträge und Leistungen",
+      "sum_assured": "Versicherungssumme",
+      "policy_term": "Policenlaufzeit (Jahre)",
+      "premium_frequency": "Beitragshäufigkeit",
+      "monthly_contribution": "Monatlicher Beitrag",
+      "annual_contribution": "Jährlicher Beitrag",
+      "total_contributions": "Gesamtbeiträge",
+      "maturity_benefit": "Fälligkeitsleistung"
+    },
+    
+    "murabaha": {
+      "title": "Murabaha-Rechner",
+      "description": "Berechnen Sie islamische Finanzierung (Murabaha) Bedingungen und Zahlungen",
+      "purchase_price": "Kaufpreis",
+      "profit_rate": "Gewinnrate (%)",
+      "financing_period": "Finanzierungszeitraum (Monate)",
+      "down_payment": "Anzahlung",
+      "total_cost": "Gesamtkosten",
+      "profit_amount": "Gewinnbetrag",
+      "monthly_installment": "Monatliche Rate"
+    }
+  },
+  
+  "results": {
+    "your_result": "Ihr Ergebnis",
+    "breakdown": "Aufschlüsselung",
+    "summary": "Zusammenfassung",
+    "details": "Details",
+    "assumptions": "Annahmen",
+    "disclaimer": "Diese Berechnung dient nur zu Informationszwecken und sollte nicht als Finanzberatung betrachtet werden."
+  },
+  
+  "errors": {
+    "invalid_input": "Bitte geben Sie eine gültige Zahl ein",
+    "required_field": "Dieses Feld ist erforderlich",
+    "calculation_error": "Ein Fehler ist bei der Berechnung aufgetreten. Bitte überprüfen Sie Ihre Eingaben.",
+    "network_error": "Netzwerkfehler. Bitte versuchen Sie es erneut.",
+    "min_value": "Wert muss mindestens {min} betragen",
+    "max_value": "Wert darf {max} nicht überschreiten",
+    "positive_number": "Bitte geben Sie eine positive Zahl ein"
+  },
+  
+  "islamic_finance": {
+    "title": "Islamische Finanzierung",
+    "subtitle": "Scharia-konforme Finanzberechnungen",
+    "terms": {
+      "murabaha": {
+        "arabic": "مرابحة",
+        "transliteration": "Murabaha",
+        "definition": "Ein Verkaufsvertrag, bei dem der Verkäufer die Kosten und Gewinnspanne dem Käufer offenlegt"
+      },
+      "takaful": {
+        "arabic": "تكافل",
+        "transliteration": "Takaful",
+        "definition": "Islamische Versicherung basierend auf gegenseitiger Hilfe und geteilter Verantwortung"
+      },
+      "zakat": {
+        "arabic": "زكاة",
+        "transliteration": "Zakat",
+        "definition": "Obligatorische Wohltätigkeit, die jährlich auf Vermögen über der Nisab-Schwelle gezahlt wird"
+      },
+      "riba": {
+        "arabic": "ربا",
+        "transliteration": "Riba",
+        "definition": "Zinsen oder Wucher, was in der islamischen Finanzierung verboten ist"
+      },
+      "halal": {
+        "arabic": "حلال",
+        "transliteration": "Halal",
+        "definition": "Nach islamischem Recht erlaubt"
+      },
+      "haram": {
+        "arabic": "حرام",
+        "transliteration": "Haram",
+        "definition": "Nach islamischem Recht verboten"
+      }
+    },
+    "disclaimers": {
+      "general": "Diese Berechnungen basieren auf allgemeinen islamischen Finanzprinzipien. Bitte konsultieren Sie einen qualifizierten islamischen Gelehrten für spezifische religiöse Anleitung.",
+      "zakat": "Zakat-Berechnungen basieren auf dem Mondjahr. Konsultieren Sie einen islamischen Gelehrten, um die Einhaltung Ihrer spezifischen Umstände sicherzustellen."
+    }
+  },
+  
+  "content": {
+    "how_to_use": "Wie zu verwenden",
+    "examples": "Beispiele",
+    "faq": "Häufig gestellte Fragen",
+    "related_calculators": "Verwandte Rechner",
+    "tips": "Tipps & Ratschläge"
+  },
+  
+  "footer": {
+    "description": "Kostenlose, genaue und benutzerfreundliche Rechner für alle Ihre finanziellen und alltäglichen Bedürfnisse.",
+    "popular_calculators": "Beliebte Rechner",
+    "resources": "Ressourcen",
+    "connect": "Verbinden",
+    "updates": "Erhalten Sie Updates zu neuen Rechnern und Funktionen.",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "copyright": "© 2024 Rechner-Suite. Alle Rechte vorbehalten."
+  }
+}

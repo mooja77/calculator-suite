@@ -1,0 +1,271 @@
+{
+  "common": {
+    "calculate": "Calcular",
+    "reset": "Restablecer",
+    "result": "Resultado",
+    "error": "Error",
+    "loading": "Cargando...",
+    "currency": "Moneda",
+    "amount": "Cantidad",
+    "percentage": "Porcentaje",
+    "total": "Total",
+    "submit": "Enviar",
+    "clear": "Limpiar",
+    "copy": "Copiar",
+    "share": "Compartir",
+    "print": "Imprimir",
+    "help": "Ayuda",
+    "close": "Cerrar",
+    "language": "Idioma",
+    "english": "Inglés",
+    "french": "Francés",
+    "german": "Alemán",
+    "spanish": "Español",
+    "arabic": "Árabe"
+  },
+  
+  "navigation": {
+    "home": "Inicio",
+    "calculators": "Calculadoras",
+    "all_calculators": "Todas las Calculadoras",
+    "guides": "Guías",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "financial": "Financiero",
+    "everyday": "Cotidiano",
+    "toggle_menu": "Alternar menú"
+  },
+  
+  "calculators": {
+    "title": "Suite de Calculadoras",
+    "subtitle": "Calculadoras gratuitas, precisas y fáciles de usar",
+    "description": "Calculadoras profesionales para todas sus necesidades financieras y cotidianas",
+    
+    "percentage": {
+      "title": "Calculadora de Porcentaje",
+      "description": "Calcule porcentajes, aumento/disminución porcentual, y encuentre qué porcentaje representa un número de otro",
+      "value": "Valor",
+      "is_what_percent_of": "es qué % de",
+      "percent_of": "% de",
+      "equals": "igual a",
+      "increase_decrease": "Aumento/Disminución",
+      "original_value": "Valor Original",
+      "new_value": "Nuevo Valor",
+      "change": "Cambio",
+      "increase": "Aumento",
+      "decrease": "Disminución"
+    },
+    
+    "retirement401k": {
+      "title": "Calculadora de Jubilación 401(k)",
+      "description": "Planifique sus ahorros de jubilación con proyecciones detalladas y análisis de contribuciones",
+      "current_age": "Edad Actual",
+      "retirement_age": "Edad de Jubilación",
+      "current_balance": "Balance Actual 401(k)",
+      "annual_contribution": "Contribución Anual",
+      "employer_match": "Contrapartida del Empleador %",
+      "annual_return": "Rendimiento Anual Esperado %",
+      "salary": "Salario Anual",
+      "final_balance": "Balance Proyectado en la Jubilación",
+      "total_contributions": "Contribuciones Totales del Empleado",
+      "employer_contributions": "Contribuciones Totales del Empleador",
+      "investment_growth": "Crecimiento de la Inversión"
+    },
+    
+    "studentloan": {
+      "title": "Calculadora de Préstamo Estudiantil",
+      "description": "Calcule pagos mensuales, interés total y cronograma de pago para préstamos estudiantiles",
+      "loan_amount": "Monto del Préstamo",
+      "interest_rate": "Tasa de Interés (%)",
+      "loan_term": "Plazo del Préstamo (años)",
+      "monthly_payment": "Pago Mensual",
+      "total_interest": "Interés Total Pagado",
+      "total_amount": "Cantidad Total Pagada",
+      "payoff_date": "Fecha de Liquidación"
+    },
+    
+    "paycheck": {
+      "title": "Calculadora de Nómina",
+      "description": "Calcule el salario neto después de impuestos y deducciones",
+      "gross_salary": "Salario Bruto Anual",
+      "pay_frequency": "Frecuencia de Pago",
+      "filing_status": "Estado de Declaración",
+      "allowances": "Exenciones",
+      "state": "Estado",
+      "gross_pay": "Pago Bruto",
+      "federal_tax": "Impuesto Federal",
+      "state_tax": "Impuesto Estatal",
+      "social_security": "Seguridad Social",
+      "medicare": "Medicare",
+      "net_pay": "Pago Neto",
+      "weekly": "Semanal",
+      "biweekly": "Quincenal",
+      "monthly": "Mensual",
+      "single": "Soltero",
+      "married_joint": "Casado Declaración Conjunta",
+      "married_separate": "Casado Declaración Separada",
+      "head_household": "Jefe de Familie"
+    },
+    
+    "sip": {
+      "title": "Calculadora SIP",
+      "description": "Calcule rendimientos en inversiones del Plan de Inversión Sistemática (SIP)",
+      "monthly_investment": "Inversión Mensual",
+      "investment_period": "Período de Inversión (años)",
+      "expected_return": "Rendimiento Anual Esperado (%)",
+      "total_investment": "Inversión Total",
+      "future_value": "Valor Futuro",
+      "wealth_gained": "Riqueza Ganada"
+    },
+    
+    "rentvsbuy": {
+      "title": "Calculadora Rentar vs Comprar",
+      "description": "Compare el impacto financiero de rentar versus comprar una casa",
+      "home_price": "Precio de la Casa",
+      "down_payment": "Enganche (%)",
+      "loan_term": "Plazo del Préstamo (años)",
+      "mortgage_rate": "Tasa de Hipoteca (%)",
+      "monthly_rent": "Renta Mensual",
+      "rent_increase": "Aumento Anual de Renta (%)",
+      "home_appreciation": "Apreciación Anual de la Casa (%)",
+      "property_tax": "Impuesto Predial Anual",
+      "home_insurance": "Seguro de Casa Anual",
+      "maintenance": "Mantenimiento Anual",
+      "total_cost_buying": "Costo Total de Compra",
+      "total_cost_renting": "Costo Total de Renta",
+      "net_difference": "Diferencia Neta",
+      "recommendation": "Recomendación"
+    },
+    
+    "uk_vat": {
+      "title": "Calculadora IVA Reino Unido",
+      "description": "Calcular el Impuesto al Valor Agregado (IVA) del Reino Unido para bienes y servicios",
+      "net_amount": "Cantidad Neta (sin IVA)",
+      "vat_rate": "Tasa de IVA (%)",
+      "vat_amount": "Cantidad de IVA",
+      "gross_amount": "Cantidad Bruta (incluyendo IVA)",
+      "standard_rate": "Tasa Estándar (20%)",
+      "reduced_rate": "Tasa Reducida (5%)",
+      "zero_rate": "Tasa Cero (0%)"
+    },
+    
+    "zakat": {
+      "title": "Calculadora Zakat",
+      "description": "Calcule Zakat (limosna islámica) basado en su riqueza y activos",
+      "cash_savings": "Efectivo y Ahorros",
+      "gold_silver": "Oro y Plata",
+      "business_assets": "Activos Comerciales",
+      "investments": "Inversiones",
+      "other_assets": "Otros Activos",
+      "debts": "Deudas Pendientes",
+      "nisab_threshold": "Umbral Nisab",
+      "zakatable_wealth": "Riqueza Sujeta a Zakat",
+      "zakat_due": "Zakat Debido (2.5%)",
+      "gold_nisab": "Nisab de Oro",
+      "silver_nisab": "Nisab de Plata"
+    },
+    
+    "takaful": {
+      "title": "Calculadora Takaful",
+      "description": "Calcule contribuciones y beneficios del seguro islámico (Takaful)",
+      "sum_assured": "Suma Asegurada",
+      "policy_term": "Término de la Póliza (años)",
+      "premium_frequency": "Frecuencia de Prima",
+      "monthly_contribution": "Contribución Mensual",
+      "annual_contribution": "Contribución Anual",
+      "total_contributions": "Contribuciones Totales",
+      "maturity_benefit": "Beneficio de Vencimiento"
+    },
+    
+    "murabaha": {
+      "title": "Calculadora Murabaha",
+      "description": "Calcule términos y pagos de financiamiento islámico (Murabaha)",
+      "purchase_price": "Precio de Compra",
+      "profit_rate": "Tasa de Ganancia (%)",
+      "financing_period": "Período de Financiamiento (meses)",
+      "down_payment": "Enganche",
+      "total_cost": "Costo Total",
+      "profit_amount": "Cantidad de Ganancia",
+      "monthly_installment": "Cuota Mensual"
+    }
+  },
+  
+  "results": {
+    "your_result": "Su Resultado",
+    "breakdown": "Desglose",
+    "summary": "Resumen",
+    "details": "Detalles",
+    "assumptions": "Supuestos",
+    "disclaimer": "Este cálculo es solo para fines informativos y no debe considerarse como consejo financiero."
+  },
+  
+  "errors": {
+    "invalid_input": "Por favor ingrese un número válido",
+    "required_field": "Este campo es requerido",
+    "calculation_error": "Ocurrió un error durante el cálculo. Por favor verifique sus entradas.",
+    "network_error": "Error de red. Por favor intente de nuevo.",
+    "min_value": "El valor debe ser al menos {min}",
+    "max_value": "El valor no puede exceder {max}",
+    "positive_number": "Por favor ingrese un número positivo"
+  },
+  
+  "islamic_finance": {
+    "title": "Finanzas Islámicas",
+    "subtitle": "Cálculos financieros conformes a la Sharia",
+    "terms": {
+      "murabaha": {
+        "arabic": "مرابحة",
+        "transliteration": "Murabaha",
+        "definition": "Un contrato de venta donde el vendedor divulga el costo y margen de ganancia al comprador"
+      },
+      "takaful": {
+        "arabic": "تكافل",
+        "transliteration": "Takaful",
+        "definition": "Seguro islámico basado en asistencia mutua y responsabilidad compartida"
+      },
+      "zakat": {
+        "arabic": "زكاة",
+        "transliteration": "Zakat",
+        "definition": "Caridad obligatoria pagada anualmente sobre riqueza que excede el umbral nisab"
+      },
+      "riba": {
+        "arabic": "ربا",
+        "transliteration": "Riba",
+        "definition": "Interés o usura, que está prohibido en las finanzas islámicas"
+      },
+      "halal": {
+        "arabic": "حلال",
+        "transliteration": "Halal",
+        "definition": "Permitido según la ley islámica"
+      },
+      "haram": {
+        "arabic": "حرام",
+        "transliteration": "Haram",
+        "definition": "Prohibido según la ley islámica"
+      }
+    },
+    "disclaimers": {
+      "general": "Estos cálculos se basan en principios generales de finanzas islámicas. Por favor consulte con un erudito islámico calificado para orientación religiosa específica.",
+      "zakat": "Los cálculos de Zakat se basan en el año lunar. Consulte con un erudito islámico para asegurar el cumplimiento con sus circunstancias específicas."
+    }
+  },
+  
+  "content": {
+    "how_to_use": "Cómo Usar",
+    "examples": "Ejemplos",
+    "faq": "Preguntas Frecuentes",
+    "related_calculators": "Calculadoras Relacionadas",
+    "tips": "Consejos y Sugerencias"
+  },
+  
+  "footer": {
+    "description": "Calculadoras gratuitas, precisas y fáciles de usar para todas sus necesidades financieras y cotidianas.",
+    "popular_calculators": "Calculadoras Populares",
+    "resources": "Recursos",
+    "connect": "Conectar",
+    "updates": "Reciba actualizaciones sobre nuevas calculadoras y características.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "copyright": "© 2024 Suite de Calculadoras. Todos los derechos reservados."
+  }
+}

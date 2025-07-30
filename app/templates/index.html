@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>Free Online Calculators</h1>
+    <p class="lead">Fast, accurate, and mobile-friendly calculators for all your math needs.</p>
+</div>
+
+<div class="calculator-grid">
+    {% for slug, calc_class in calculators.items() %}
+        {% set calc = calc_class() %}
+        {% set meta = calc.get_meta_data() %}
+        <div class="calculator-card">
+            <h3><a href="/calculators/{{ slug }}/">{{ meta.title.split(' - ')[0] }}</a></h3>
+            <p>{{ meta.description[:100] }}...</p>
+            <a href="/calculators/{{ slug }}/" class="btn btn-primary">Use Calculator</a>
+        </div>
+    {% endfor %}
+</div>
+
+<style>
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.calculator-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.calculator-card h3 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.calculator-card h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.calculator-card p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+</style>
+{% endblock %}

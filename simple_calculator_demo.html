@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Suite - Week 1 Fixed Version</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .calculator-card {
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .calculator-card.active {
+            background: white;
+            border-color: #3498db;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
+        }
+        
+        .calculator-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .calculator-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #34495e;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        input::placeholder {
+            color: #95a5a6;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .calculate-btn:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d5f4e6;
+            border: 1px solid #27ae60;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result-title {
+            font-weight: 600;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+        
+        .result-details {
+            color: #2c3e50;
+        }
+        
+        .error {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fadbd8;
+            border: 1px solid #e74c3c;
+            border-radius: 6px;
+            color: #c0392b;
+            display: none;
+        }
+        
+        .error.show {
+            display: block;
+        }
+        
+        .week1-status {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-title {
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .status-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .status-list li {
+            color: #388e3c;
+            margin-bottom: 5px;
+        }
+        
+        .status-list li:before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculator Suite</h1>
+        <p class="subtitle">Simple financial tools for everyday decisions</p>
+        
+        <div class="week1-status">
+            <div class="status-title">✅ Week 1 Foundation Complete</div>
+            <ul class="status-list">
+                <li>All calculator math is working correctly</li>
+                <li>User-friendly error messages (no more "ValueError")</li>
+                <li>Clear instructions with examples</li>
+                <li>Mobile-friendly interface</li>
+                <li>Helpful explanations for results</li>
+            </ul>
+        </div>
+        
+        <div class="calculator-grid">
+            <!-- Percentage Calculator -->
+            <div class="calculator-card" id="percentage-card">
+                <div class="calculator-title">Percentage Calculator</div>
+                <div class="calculator-description">Calculate percentages for everyday situations like test scores, tips, and sales</div>
+                
+                <div class="form-group">
+                    <label for="percent-operation">What do you want to calculate?</label>
+                    <select id="percent-operation">
+                        <option value="what_percent">What percent is ___ of ___? (like test scores)</option>
+                        <option value="percent_of">What is ___% of ___? (like calculating tips)</option>
+                        <option value="increase">Increase ___ by ___% (like salary raises)</option>
+                    </select>
+                </div>
+                
+                <div id="percent-inputs-what_percent">
+                    <div class="form-group">
+                        <label for="percent-part">First number (like points earned)</label>
+                        <input type="number" id="percent-part" placeholder="25">
+                    </div>
+                    <div class="form-group">
+                        <label for="percent-whole">Total number (like total points possible)</label>
+                        <input type="number" id="percent-whole" placeholder="100">
+                    </div>
+                </div>
+                
+                <div id="percent-inputs-percent_of" style="display: none;">
+                    <div class="form-group">
+                        <label for="percent-percent">Percentage (without % sign)</label>
+                        <input type="number" id="percent-percent" placeholder="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="percent-of-whole">Of this amount</label>
+                        <input type="number" id="percent-of-whole" placeholder="150">
+                    </div>
+                </div>
+                
+                <div id="percent-inputs-increase" style="display: none;">
+                    <div class="form-group">
+                        <label for="percent-original">Starting amount</label>
+                        <input type="number" id="percent-original" placeholder="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="percent-increase">Increase by this percent</label>
+                        <input type="number" id="percent-increase" placeholder="15">
+                    </div>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculatePercentage()">Calculate</button>
+                
+                <div class="result" id="percent-result">
+                    <div class="result-title">Your Result</div>
+                    <div class="result-details" id="percent-details"></div>
+                </div>
+                
+                <div class="error" id="percent-error"></div>
+            </div>
+            
+            <!-- Tip Calculator -->
+            <div class="calculator-card" id="tip-card">
+                <div class="calculator-title">Tip Calculator</div>
+                <div class="calculator-description">Figure out how much to tip and split bills with friends</div>
+                
+                <div class="form-group">
+                    <label for="bill-amount">Bill amount (before tip)</label>
+                    <input type="number" id="bill-amount" placeholder="50.00" step="0.01">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tip-percent">Tip percentage</label>
+                    <select id="tip-percent">
+                        <option value="15">15% (okay service)</option>
+                        <option value="18" selected>18% (good service)</option>
+                        <option value="20">20% (great service)</option>
+                        <option value="22">22% (excellent service)</option>
+                        <option value="custom">Custom percentage</option>
+                    </select>
+                    <input type="number" id="custom-tip" placeholder="Enter percentage" style="display: none; margin-top: 10px;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="people-count">Number of people sharing the bill</label>
+                    <input type="number" id="people-count" placeholder="1" min="1" value="1">
+                </div>
+                
+                <button class="calculate-btn" onclick="calculateTip()">Calculate Tip</button>
+                
+                <div class="result" id="tip-result">
+                    <div class="result-title">Your Tip Breakdown</div>
+                    <div class="result-details" id="tip-details"></div>
+                </div>
+                
+                <div class="error" id="tip-error"></div>
+            </div>
+            
+            <!-- BMI Calculator -->
+            <div class="calculator-card" id="bmi-card">
+                <div class="calculator-title">BMI Calculator</div>
+                <div class="calculator-description">Check if you're at a healthy weight for your height</div>
+                
+                <div class="form-group">
+                    <label for="height-cm">Your height in centimeters</label>
+                    <input type="number" id="height-cm" placeholder="175 (5'9&quot; is about 175cm)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="weight-kg">Your weight in kilograms</label>
+                    <input type="number" id="weight-kg" placeholder="70 (154 lbs is about 70kg)">
+                </div>
+                
+                <button class="calculate-btn" onclick="calculateBMI()">Calculate BMI</button>
+                
+                <div class="result" id="bmi-result">
+                    <div class="result-title">Your BMI Results</div>
+                    <div class="result-details" id="bmi-details"></div>
+                </div>
+                
+                <div class="error" id="bmi-error"></div>
+            </div>
+            
+            <!-- Loan Calculator -->
+            <div class="calculator-card" id="loan-card">
+                <div class="calculator-title">Loan Calculator</div>
+                <div class="calculator-description">Find out your monthly payment for a car, personal, or other loan</div>
+                
+                <div class="form-group">
+                    <label for="loan-amount">Loan amount (how much you want to borrow)</label>
+                    <input type="number" id="loan-amount" placeholder="25000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="loan-rate">Interest rate per year (like 6.5 for 6.5%)</label>
+                    <input type="number" id="loan-rate" placeholder="6.5" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="loan-years">How many years to pay it back</label>
+                    <input type="number" id="loan-years" placeholder="5">
+                </div>
+                
+                <button class="calculate-btn" onclick="calculateLoan()">Calculate Payment</button>
+                
+                <div class="result" id="loan-result">
+                    <div class="result-title">Your Loan Payment</div>
+                    <div class="result-details" id="loan-details"></div>
+                </div>
+                
+                <div class="error" id="loan-error"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide percentage calculator inputs based on operation
+        document.getElementById('percent-operation').addEventListener('change', function() {
+            const operation = this.value;
+            const allInputs = document.querySelectorAll('[id^="percent-inputs-"]');
+            allInputs.forEach(div => div.style.display = 'none');
+            document.getElementById('percent-inputs-' + operation).style.display = 'block';
+        });
+        
+        // Show/hide custom tip input
+        document.getElementById('tip-percent').addEventListener('change', function() {
+            const customInput = document.getElementById('custom-tip');
+            if (this.value === 'custom') {
+                customInput.style.display = 'block';
+            } else {
+                customInput.style.display = 'none';
+            }
+        });
+        
+        function showError(calculatorType, message) {
+            const errorDiv = document.getElementById(calculatorType + '-error');
+            const resultDiv = document.getElementById(calculatorType + '-result');
+            
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+            resultDiv.classList.remove('show');
+        }
+        
+        function showResult(calculatorType, content) {
+            const errorDiv = document.getElementById(calculatorType + '-error');
+            const resultDiv = document.getElementById(calculatorType + '-result');
+            const detailsDiv = document.getElementById(calculatorType + '-details');
+            
+            detailsDiv.innerHTML = content;
+            resultDiv.classList.add('show');
+            errorDiv.classList.remove('show');
+        }
+        
+        function calculatePercentage() {
+            const operation = document.getElementById('percent-operation').value;
+            
+            try {
+                let result, explanation;
+                
+                if (operation === 'what_percent') {
+                    const part = parseFloat(document.getElementById('percent-part').value);
+                    const whole = parseFloat(document.getElementById('percent-whole').value);
+                    
+                    if (isNaN(part) || isNaN(whole)) {
+                        throw new Error('Please enter numbers for both fields');
+                    }
+                    if (whole === 0) {
+                        throw new Error('Cannot divide by zero - the total cannot be 0');
+                    }
+                    
+                    result = (part / whole) * 100;
+                    explanation = `<strong>${result.toFixed(1)}%</strong><br>
+                                 ${part} is ${result.toFixed(1)}% of ${whole}<br><br>
+                                 <em>For example: If you got ${part} questions right out of ${whole} total questions, 
+                                 your score is ${result.toFixed(1)}%</em>`;
+                
+                } else if (operation === 'percent_of') {
+                    const percent = parseFloat(document.getElementById('percent-percent').value);
+                    const whole = parseFloat(document.getElementById('percent-of-whole').value);
+                    
+                    if (isNaN(percent) || isNaN(whole)) {
+                        throw new Error('Please enter numbers for both fields');
+                    }
+                    
+                    result = (percent / 100) * whole;
+                    explanation = `<strong>$${result.toFixed(2)}</strong><br>
+                                 ${percent}% of ${whole} is ${result.toFixed(2)}<br><br>
+                                 <em>For example: A ${percent}% tip on a $${whole} bill would be $${result.toFixed(2)}</em>`;
+                
+                } else if (operation === 'increase') {
+                    const original = parseFloat(document.getElementById('percent-original').value);
+                    const percent = parseFloat(document.getElementById('percent-increase').value);
+                    
+                    if (isNaN(original) || isNaN(percent)) {
+                        throw new Error('Please enter numbers for both fields');
+                    }
+                    
+                    result = original * (1 + percent / 100);
+                    const increaseAmount = result - original;
+                    explanation = `<strong>$${result.toFixed(2)}</strong><br>
+                                 ${original} increased by ${percent}% equals ${result.toFixed(2)}<br>
+                                 Increase amount: $${increaseAmount.toFixed(2)}<br><br>
+                                 <em>For example: If your $${original} salary increases by ${percent}%, 
+                                 your new salary would be $${result.toFixed(2)}</em>`;
+                }
+                
+                showResult('percent', explanation);
+                
+            } catch (error) {
+                showError('percent', error.message);
+            }
+        }
+        
+        function calculateTip() {
+            try {
+                const billAmount = parseFloat(document.getElementById('bill-amount').value);
+                const tipSelect = document.getElementById('tip-percent');
+                let tipPercent;
+                
+                if (tipSelect.value === 'custom') {
+                    tipPercent = parseFloat(document.getElementById('custom-tip').value);
+                } else {
+                    tipPercent = parseFloat(tipSelect.value);
+                }
+                
+                const peopleCount = parseInt(document.getElementById('people-count').value);
+                
+                if (isNaN(billAmount) || billAmount <= 0) {
+                    throw new Error('Please enter a valid bill amount');
+                }
+                if (isNaN(tipPercent) || tipPercent < 0) {
+                    throw new Error('Please enter a valid tip percentage');
+                }
+                if (isNaN(peopleCount) || peopleCount < 1) {
+                    throw new Error('Number of people must be at least 1');
+                }
+                
+                const tipAmount = billAmount * (tipPercent / 100);
+                const totalAmount = billAmount + tipAmount;
+                const perPerson = totalAmount / peopleCount;
+                
+                let serviceNote = '';
+                if (tipPercent >= 20) {
+                    serviceNote = ' (Great tip for good service!)';
+                } else if (tipPercent >= 18) {
+                    serviceNote = ' (Standard tip for good service)';
+                } else if (tipPercent >= 15) {
+                    serviceNote = ' (Okay for average service)';
+                }
+                
+                const explanation = `<strong>Tip: $${tipAmount.toFixed(2)}</strong><br>
+                                   <strong>Total: $${totalAmount.toFixed(2)}</strong>${serviceNote}<br><br>
+                                   Bill: $${billAmount.toFixed(2)}<br>
+                                   Tip (${tipPercent}%): $${tipAmount.toFixed(2)}<br>
+                                   ${peopleCount > 1 ? `Each person pays: <strong>$${perPerson.toFixed(2)}</strong>` : ''}`;
+                
+                showResult('tip', explanation);
+                
+            } catch (error) {
+                showError('tip', error.message);
+            }
+        }
+        
+        function calculateBMI() {
+            try {
+                const heightCm = parseFloat(document.getElementById('height-cm').value);
+                const weightKg = parseFloat(document.getElementById('weight-kg').value);
+                
+                if (isNaN(heightCm) || heightCm <= 0) {
+                    throw new Error('Please enter your height in centimeters (like 175 for 5\'9")');
+                }
+                if (isNaN(weightKg) || weightKg <= 0) {
+                    throw new Error('Please enter your weight in kilograms (like 70 for 154 lbs)');
+                }
+                
+                const heightM = heightCm / 100;
+                const bmi = weightKg / (heightM * heightM);
+                
+                let category, advice, color;
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    advice = 'Consider talking to a doctor about healthy weight gain';
+                    color = '#3498db';
+                } else if (bmi < 25) {
+                    category = 'Normal weight';
+                    advice = 'Great job maintaining a healthy weight!';
+                    color = '#27ae60';
+                } else if (bmi < 30) {
+                    category = 'Overweight';
+                    advice = 'Small changes in diet and exercise can help';
+                    color = '#f39c12';
+                } else {
+                    category = 'Obese';
+                    advice = 'Consider consulting a healthcare provider';
+                    color = '#e74c3c';
+                }
+                
+                const explanation = `<strong style="color: ${color}">BMI: ${bmi.toFixed(1)}</strong><br>
+                                   <strong>Category: ${category}</strong><br><br>
+                                   Height: ${heightCm}cm<br>
+                                   Weight: ${weightKg}kg<br><br>
+                                   <em>${advice}</em><br><br>
+                                   <small>Note: BMI doesn't account for muscle mass or other factors. 
+                                   For personalized advice, consult a healthcare provider.</small>`;
+                
+                showResult('bmi', explanation);
+                
+            } catch (error) {
+                showError('bmi', error.message);
+            }
+        }
+        
+        function calculateLoan() {
+            try {
+                const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+                const annualRate = parseFloat(document.getElementById('loan-rate').value);
+                const loanYears = parseFloat(document.getElementById('loan-years').value);
+                
+                if (isNaN(loanAmount) || loanAmount <= 0) {
+                    throw new Error('Please enter a loan amount (like 25000)');
+                }
+                if (isNaN(annualRate) || annualRate < 0) {
+                    throw new Error('Please enter an interest rate (like 6.5 for 6.5%)');
+                }
+                if (isNaN(loanYears) || loanYears <= 0) {
+                    throw new Error('Please enter the number of years (like 5)');
+                }
+                
+                const monthlyRate = (annualRate / 100) / 12;
+                const numPayments = loanYears * 12;
+                
+                let monthlyPayment;
+                if (monthlyRate === 0) {
+                    monthlyPayment = loanAmount / numPayments;
+                } else {
+                    monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                }
+                
+                const totalPaid = monthlyPayment * numPayments;
+                const totalInterest = totalPaid - loanAmount;
+                
+                let affordabilityNote = '';
+                if (monthlyPayment > 500) {
+                    affordabilityNote = '<br><em>Make sure this payment fits your budget. Most experts recommend keeping loan payments under 20% of your monthly income.</em>';
+                }
+                
+                const explanation = `<strong>Monthly Payment: $${monthlyPayment.toFixed(2)}</strong><br><br>
+                                   Loan Amount: $${loanAmount.toLocaleString()}<br>
+                                   Interest Rate: ${annualRate}% per year<br>
+                                   Loan Term: ${loanYears} years (${numPayments} payments)<br><br>
+                                   <strong>Total paid over ${loanYears} years: $${totalPaid.toLocaleString()}</strong><br>
+                                   Total interest paid: $${totalInterest.toLocaleString()}${affordabilityNote}`;
+                
+                showResult('loan', explanation);
+                
+            } catch (error) {
+                showError('loan', error.message);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+{
+  "common": {
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "result": "Result",
+    "error": "Error",
+    "loading": "Loading...",
+    "currency": "Currency",
+    "amount": "Amount",
+    "percentage": "Percentage",
+    "total": "Total",
+    "submit": "Submit",
+    "clear": "Clear",
+    "copy": "Copy",
+    "share": "Share",
+    "print": "Print",
+    "help": "Help",
+    "close": "Close",
+    "language": "Language",
+    "english": "English",
+    "french": "French",
+    "german": "German",
+    "spanish": "Spanish",
+    "arabic": "Arabic"
+  },
+  
+  "navigation": {
+    "home": "Home",
+    "calculators": "Calculators",
+    "all_calculators": "All Calculators",
+    "guides": "Guides",
+    "about": "About",
+    "contact": "Contact",
+    "financial": "Financial",
+    "everyday": "Everyday",
+    "toggle_menu": "Toggle menu"
+  },
+  
+  "calculators": {
+    "title": "Calculator Suite",
+    "subtitle": "Free, accurate, and easy-to-use calculators",
+    "description": "Professional calculators for all your financial and everyday needs",
+    
+    "percentage": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentages, percentage increase/decrease, and find what percentage one number is of another",
+      "value": "Value",
+      "is_what_percent_of": "is what % of",
+      "percent_of": "% of",
+      "equals": "equals",
+      "increase_decrease": "Increase/Decrease",
+      "original_value": "Original Value",
+      "new_value": "New Value",
+      "change": "Change",
+      "increase": "Increase",
+      "decrease": "Decrease"
+    },
+    
+    "retirement401k": {
+      "title": "401(k) Retirement Calculator",
+      "description": "Plan your retirement savings with detailed projections and contribution analysis",
+      "current_age": "Current Age",
+      "retirement_age": "Retirement Age",
+      "current_balance": "Current 401(k) Balance",
+      "annual_contribution": "Annual Contribution",
+      "employer_match": "Employer Match %",
+      "annual_return": "Expected Annual Return %",
+      "salary": "Annual Salary",
+      "final_balance": "Projected Balance at Retirement",
+      "total_contributions": "Total Employee Contributions",
+      "employer_contributions": "Total Employer Contributions",
+      "investment_growth": "Investment Growth"
+    },
+    
+    "studentloan": {
+      "title": "Student Loan Calculator",
+      "description": "Calculate monthly payments, total interest, and payoff timeline for student loans",
+      "loan_amount": "Loan Amount",
+      "interest_rate": "Interest Rate (%)",
+      "loan_term": "Loan Term (years)",
+      "monthly_payment": "Monthly Payment",
+      "total_interest": "Total Interest Paid",
+      "total_amount": "Total Amount Paid",
+      "payoff_date": "Payoff Date"
+    },
+    
+    "paycheck": {
+      "title": "Paycheck Calculator",
+      "description": "Calculate take-home pay after taxes and deductions",
+      "gross_salary": "Gross Annual Salary",
+      "pay_frequency": "Pay Frequency",
+      "filing_status": "Filing Status",
+      "allowances": "Allowances",
+      "state": "State",
+      "gross_pay": "Gross Pay",
+      "federal_tax": "Federal Tax",
+      "state_tax": "State Tax",
+      "social_security": "Social Security",
+      "medicare": "Medicare",
+      "net_pay": "Net Pay",
+      "weekly": "Weekly",
+      "biweekly": "Bi-weekly",
+      "monthly": "Monthly",
+      "single": "Single",
+      "married_joint": "Married Filing Jointly",
+      "married_separate": "Married Filing Separately",
+      "head_household": "Head of Household"
+    },
+    
+    "sip": {
+      "title": "SIP Calculator",
+      "description": "Calculate returns on Systematic Investment Plan (SIP) investments",
+      "monthly_investment": "Monthly Investment",
+      "investment_period": "Investment Period (years)",
+      "expected_return": "Expected Annual Return (%)",
+      "total_investment": "Total Investment",
+      "future_value": "Future Value",
+      "wealth_gained": "Wealth Gained"
+    },
+    
+    "rentvsbuy": {
+      "title": "Rent vs Buy Calculator",
+      "description": "Compare the financial impact of renting versus buying a home",
+      "home_price": "Home Price",
+      "down_payment": "Down Payment (%)",
+      "loan_term": "Loan Term (years)",
+      "mortgage_rate": "Mortgage Interest Rate (%)",
+      "monthly_rent": "Monthly Rent",
+      "rent_increase": "Annual Rent Increase (%)",
+      "home_appreciation": "Annual Home Appreciation (%)",
+      "property_tax": "Annual Property Tax",
+      "home_insurance": "Annual Home Insurance",
+      "maintenance": "Annual Maintenance",
+      "total_cost_buying": "Total Cost of Buying",
+      "total_cost_renting": "Total Cost of Renting",
+      "net_difference": "Net Difference",
+      "recommendation": "Recommendation"
+    },
+    
+    "uk_vat": {
+      "title": "UK VAT Calculator",
+      "description": "Calculate UK Value Added Tax (VAT) for goods and services",
+      "net_amount": "Net Amount (excluding VAT)",
+      "vat_rate": "VAT Rate (%)",
+      "vat_amount": "VAT Amount",
+      "gross_amount": "Gross Amount (including VAT)",
+      "standard_rate": "Standard Rate (20%)",
+      "reduced_rate": "Reduced Rate (5%)",
+      "zero_rate": "Zero Rate (0%)"
+    },
+    
+    "zakat": {
+      "title": "Zakat Calculator",
+      "description": "Calculate Zakat (Islamic almsgiving) based on your wealth and assets",
+      "cash_savings": "Cash & Savings",
+      "gold_silver": "Gold & Silver",
+      "business_assets": "Business Assets",
+      "investments": "Investments",
+      "other_assets": "Other Assets",
+      "debts": "Outstanding Debts",
+      "nisab_threshold": "Nisab Threshold",
+      "zakatable_wealth": "Zakatable Wealth",
+      "zakat_due": "Zakat Due (2.5%)",
+      "gold_nisab": "Gold Nisab",
+      "silver_nisab": "Silver Nisab"
+    },
+    
+    "takaful": {
+      "title": "Takaful Calculator",
+      "description": "Calculate Islamic insurance (Takaful) contributions and benefits",
+      "sum_assured": "Sum Assured",
+      "policy_term": "Policy Term (years)",
+      "premium_frequency": "Premium Frequency",
+      "monthly_contribution": "Monthly Contribution",
+      "annual_contribution": "Annual Contribution",
+      "total_contributions": "Total Contributions",
+      "maturity_benefit": "Maturity Benefit"
+    },
+    
+    "murabaha": {
+      "title": "Murabaha Calculator",
+      "description": "Calculate Islamic financing (Murabaha) terms and payments",
+      "purchase_price": "Purchase Price",
+      "profit_rate": "Profit Rate (%)",
+      "financing_period": "Financing Period (months)",
+      "down_payment": "Down Payment",
+      "total_cost": "Total Cost",
+      "profit_amount": "Profit Amount",
+      "monthly_installment": "Monthly Installment"
+    }
+  },
+  
+  "results": {
+    "your_result": "Your Result",
+    "breakdown": "Breakdown",
+    "summary": "Summary",
+    "details": "Details",
+    "assumptions": "Assumptions",
+    "disclaimer": "This calculation is for informational purposes only and should not be considered as financial advice."
+  },
+  
+  "errors": {
+    "invalid_input": "Please enter a valid number",
+    "required_field": "This field is required",
+    "calculation_error": "An error occurred during calculation. Please check your inputs.",
+    "network_error": "Network error. Please try again.",
+    "min_value": "Value must be at least {min}",
+    "max_value": "Value cannot exceed {max}",
+    "positive_number": "Please enter a positive number"
+  },
+  
+  "islamic_finance": {
+    "title": "Islamic Finance",
+    "subtitle": "Sharia-compliant financial calculations",
+    "terms": {
+      "murabaha": {
+        "arabic": "مرابحة",
+        "transliteration": "Murabaha",
+        "definition": "A sale contract where the seller discloses the cost and profit margin to the buyer"
+      },
+      "takaful": {
+        "arabic": "تكافل",
+        "transliteration": "Takaful",
+        "definition": "Islamic insurance based on mutual assistance and shared responsibility"
+      },
+      "zakat": {
+        "arabic": "زكاة",
+        "transliteration": "Zakat",
+        "definition": "Obligatory charity paid annually on wealth exceeding the nisab threshold"
+      },
+      "riba": {
+        "arabic": "ربا",
+        "transliteration": "Riba",
+        "definition": "Interest or usury, which is prohibited in Islamic finance"
+      },
+      "halal": {
+        "arabic": "حلال",
+        "transliteration": "Halal",
+        "definition": "Permissible according to Islamic law"
+      },
+      "haram": {
+        "arabic": "حرام",
+        "transliteration": "Haram",
+        "definition": "Forbidden according to Islamic law"
+      }
+    },
+    "disclaimers": {
+      "general": "These calculations are based on general Islamic finance principles. Please consult with a qualified Islamic scholar for specific religious guidance.",
+      "zakat": "Zakat calculations are based on the lunar year. Consult with an Islamic scholar to ensure compliance with your specific circumstances."
+    }
+  },
+  
+  "content": {
+    "how_to_use": "How to Use",
+    "examples": "Examples",
+    "faq": "Frequently Asked Questions",
+    "related_calculators": "Related Calculators",
+    "tips": "Tips & Advice"
+  },
+  
+  "footer": {
+    "description": "Free, accurate, and easy-to-use calculators for all your financial and everyday needs.",
+    "popular_calculators": "Popular Calculators",
+    "resources": "Resources",
+    "connect": "Connect",
+    "updates": "Get updates on new calculators and features.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2024 Calculator Suite. All rights reserved."
+  }
+}

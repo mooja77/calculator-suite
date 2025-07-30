@@ -3,7 +3,7 @@ Localization service for multi-regional support.
 """
 import geoip2.database
 import geoip2.errors
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional, Tuple, List
 import logging
 import os
 from datetime import datetime

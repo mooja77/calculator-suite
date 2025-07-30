@@ -7,7 +7,6 @@ import logging
 
 from app.services.currency import currency_service
 from app.services.localization import localization_service
-from app.security import require_api_key
 
 logger = logging.getLogger(__name__)
 

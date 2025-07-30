@@ -1,6 +1,17 @@
+import os
+import sys
+
+# Add the current directory to Python path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from app import create_app, db
 
+# Create the Flask application instance
 app = create_app()
+
+# This ensures the app is available for Gunicorn as 'app:app'
+if __name__ == '__main__':
+    app.run(debug=True)
 
 @app.cli.command()
 def init_db():
